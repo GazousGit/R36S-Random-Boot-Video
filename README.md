@@ -58,13 +58,13 @@ To be able to do that you will need to set a password for your root user
 |-----------------------------------------|
 
 ### Set up root access
-Execute the command
+Execute the command :
 ```sh
 sudo passwd root
 ```
 It will ask you a password so type it and press enter, it will then ask to confirm the password so repeat the process and press enter again.
 
-Now you need to allow root to connect with ssh so type (or copy and paste):
+Now you need to allow root to connect with ssh so execute this command :
 ```sh
 sudo nano /etc/ssh/sshd_config
 ```
@@ -82,7 +82,7 @@ Do not forget to remove the Hashtag or the line will be ignored
 
 Now press **ctrl + X** and type **y** to save changes
 
-Reboot your device with
+Reboot your device by executing this command :
 ```sh
 sudo reboot
 ```
@@ -98,13 +98,13 @@ Congrats you're connected as admin, now let's do the such awaited work
 |-----------------------------------------|
 
 ### Set up the random video script
-We'll create a new file to put the script content
+We'll create a new file to put the script content, execute this command :
 
 ```sh
 touch /usr/local/bin/play-random-video
 ```
 
-Then we open this file with our text editor
+Then we open this file with our text editor, execute this command :
 
 ```sh
 sudo nano /usr/local/bin/play-random-video
@@ -135,13 +135,13 @@ RANDOM_VIDEO=$(printf "%s\n" "${VIDEO_FILES[@]}" | shuf -n 1)
 Now press **ctrl + X**
 Type **y** to save changes
 
-Execute the commande below (important)
+Execute the commande below (important) :
 
 ```sh
 sudo chmod +x /usr/local/bin/play-random-video
 ```
 
-Now we open an existing file to put our script into a service
+Now we open an existing file to put our script into a service, execute this command :
 
 ```sh
 sudo nano /etc/systemd/system/play-video.service
@@ -166,7 +166,7 @@ WantedBy=default.target
 Now press **ctrl + X**
 Type **y** to save changes
 
-Then we execute 2 commands to enable the service
+Then we execute 2 commands to enable the service (one after the other) :
 
 ```sh
 sudo systemctl daemon-reload
