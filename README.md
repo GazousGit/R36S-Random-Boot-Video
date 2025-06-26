@@ -16,7 +16,7 @@ Their account is deleted from reddit or so, so I have no idea who this is but th
 
 ## _Instructions_
 ### Requirements
-- R36S with ArkOS (or any corersponding handled device with a UNIX OS although I can't guarantee success, you might need to install packages)
+- R36S with ArkOS (or any corresponding handled device with a UNIX OS although I can't guarantee success, you might need to install packages)
 - An ethernet or Wifi to USB-C adapter (personnaly I use a TP-Link ethernet to USB-C UE300C and it works like a charm)
 - A computer (Windows, Mac, Linux)
     - If you're on **linux or MacOS** I will assume you know how to connect with to an IP via SSH
