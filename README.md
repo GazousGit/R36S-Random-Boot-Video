@@ -8,6 +8,9 @@ Here's a little trick I did to get some randomized video to be played on ArkOS b
 All you need is to be able to connect to your device with SSH to add the script and create a service.
 The videos goes in the boot partition of your SD card (note that you can of course change anything in the script about that)
 
+Someone should be mentionnend cause they were the first (or one of the first) to achieve this, I just fancied things a bit:
+https://www.reddit.com/r/R36S/comments/1h5xvgm/boot_sound/
+
 ## _Instructions_
 ### Requirements
 - R36S with ArkOS (or any corersponding handled device with a UNIX OS although I can't guarantee success, you might need to install packages)
@@ -20,10 +23,12 @@ The videos goes in the boot partition of your SD card (note that you can of cour
 
 
 ### Before anything
-Put your SD card in your computer and add a folder into the bios partition "boot_videos"
-Place your videos in mp4 format there (try to stick to short videos like 10-15sec) and do not put crazy long name to them... 
+Put your SD card in your computer and add a folder into the boot partition **boot_videos**
+Place your videos in mp4 format there (try to stick to short videos like 10-15sec) and do not put crazy long name to them
 
 Nothing force you to use the boot partition, you could as well put your folder in the EASYROM partition but you will have to change the folder in the script (search VIDEO_DIR) be very careful because the root folder is not called EASYROM of course, I think it's called roms or roms2, you could easly check that through putty or winscp.
+
+I'm in a good mood, so here's my personnal collection of boot videos : https://drive.google.com/drive/folders/16npZavAaKatOQUN4gcF6alFIhi_7RNMh?usp=sharing
 
 
 ### Connect to your R36S with SS
@@ -54,28 +59,27 @@ sudo nano /etc/ssh/sshd_config
 ```
 Then scroll down and find the line that start with **#PermitRootLogin**
 
-You need to change the line from :
+You need to change the line from
 ```
 #PermitRootLogin whatever_is_written_here
 ```
-To:
+To
 ```
 PermitRootLogin yes
 ```
 Do not forget to remove the Hashtag or the line will be ignored
 
-Now press **ctrl + X**
-Type **y** to save changes
+Now press **ctrl + X** and type **y** to save changes
 
-Then reboot your device with :
+Reboot your device with
 ```sh
 sudo reboot
 ```
 
-Your device will restart and you have to do the same process to connect to SSH in the options -> network info and enable remote service
-(I am well aware you can keep ssh always on, but I wouldn't recommand it, especialy if you play with wifi on on your device)
+Your device will restart and you have to do the same process (Step 1 to 4) to connect to SSH in the options.
+(I am well aware you can keep ssh always on, but I wouldn't do it, especialy if you play with wifi on on your device)
 
-now this time with your computer do not use ark/ark as user password to connect but use root/yourpassword
+Now connect again to your R36S with putty but do not use **ark/ark** as user password to connect but use **root/yourpassword**
 
 Congrats you're connected as admin, now let's do the such awaited work
 
@@ -130,7 +134,7 @@ Now we open an existing file to put our script into a service
 sudo nano /etc/systemd/system/play-video.service
 ```
 
-Make sure the file have the same content as below (I think you just need to change the ExecStart line)
+Make sure the file have the same content as below (I think you just need to change the **ExecStart** line)
 
 ```bash
 [Unit]
