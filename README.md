@@ -6,34 +6,42 @@ Here's a little trick I did to get some randomized video to be played on ArkOS b
 (This should work with any OS unix based but I only tested it with ArkOS)
 
 All you need is to be able to connect to your device with SSH to add the script and create a service.
-The videos goes in the boot partition of your SD card (note that you can of course change anything in the script about that)
+
+The videos files goes in the boot partition of your SD card (note that you can of course change anything in the script about that)
 
 Someone should be mentionnend cause they were the first (or one of the first) to achieve this, I just fancied things a bit:
-https://www.reddit.com/r/R36S/comments/1h5xvgm/boot_sound/
+https://www.reddit.com/r/R36S/comments/1h5xvgm/boot_sound/ 
+
+Their account is deleted from reddit or so, so I have no idea who this is but thank you anyway 💗
 
 ## _Instructions_
 ### Requirements
 - R36S with ArkOS (or any corersponding handled device with a UNIX OS although I can't guarantee success, you might need to install packages)
 - An ethernet or Wifi to USB-C adapter (personnaly I use a TP-Link ethernet to USB-C UE300C and it works like a charm)
 - A computer (Windows, Mac, Linux)
-    - If you're on linux or MacOS I will assume you know how to connect with to an IP SSH (If you don't then look it up, it's actually easier than with windows)
-    - If you're on windows you will also need some software to ease your life
-        - Putty, so you can easly connect with SSH (Windows terminal or others tools could do, bu I like putty, up to you if want something else) https://www.putty.org/
-        - WinSCP (Optionnal but I like it as well, it will allow you to navigate easly into ArkOS folders and do neat stuff, you don't really need it for this tutorial) https://winscp.net/eng/index.php
+    - If you're on **linux or MacOS** I will assume you know how to connect with to an IP via SSH
+        - If you don't then look it up, it's actually easier than with windows
+    - If you're on **windows** you will also need some software to ease your life
+        - **Putty**, so you can easly connect with SSH (Windows terminal or others tools could do, bu I like putty, up to you if want something else)
+            - [Download Putty](https://www.putty.org/)
+        - **WinSCP** (Optionnal) it will allow you to navigate easly into ArkOS folders and do neat stuff, you don't really need it for this tutorial
+            - [Download WinSCP](https://winscp.net/eng/index.php)
 
 
 ### Before anything
+I'm in a good mood, so here's my personnal collection of boot videos, enjoy : 
+👉[The holy Grail of boot videos](https://drive.google.com/drive/folders/16npZavAaKatOQUN4gcF6alFIhi_7RNMh?usp=sharing)👈
+
 Put your SD card in your computer and add a folder into the boot partition **boot_videos**
-Place your videos in mp4 format there (try to stick to short videos like 10-15sec) and do not put crazy long name to them
 
-Nothing force you to use the boot partition, you could as well put your folder in the EASYROM partition but you will have to change the folder in the script (search VIDEO_DIR) be very careful because the root folder is not called EASYROM of course, I think it's called roms or roms2, you could easly check that through putty or winscp.
+Place your videos in mp4 format there (try to stick to short videos like 10-15sec with a short name)
 
-I'm in a good mood, so here's my personnal collection of boot videos : https://drive.google.com/drive/folders/16npZavAaKatOQUN4gcF6alFIhi_7RNMh?usp=sharing
+Nothing force you to use the boot partition, you could as well put your video folder in the EASYROM partition but you will have to change the folder in the script (search **VIDEO_DIR** below) 
+
+Be very careful because the root folder is not called EASYROM of course, I think it's called roms or roms2, you could easly check that through putty or winscp.
 
 
-### Connect to your R36S with SS
-https://github.com/christianhaitian/arkos/wiki/Frequently-Asked-Questions---CHI#q-how-do-i-ssh-into-arkos
-
+### Connect to your R36S with SSH
 1. Connect your R36S using wifi or ethernet via USB-C (Don't use your phone since you want your R36S to be on the same network as your computer)
 2. Go to the **Options** menu and select **NETWORK INFO** so you can see your the assigned IP to your device
 3. Click A to continue and you will go back out to the Options menu
@@ -44,7 +52,10 @@ Now start putty and put the IP you got from the step 2 above (you can still go t
 It will ask you User and Password -> credentials are **ark/ark**
 
 Once you are logged in, you will want to connect as root (admin)
-To be able to do that you will need to set a password for your root user 
+To be able to do that you will need to set a password for your root user
+
+| ❗  If it doesn't work, maybe something changed so I'd suggest you check the original ArkOS wiki about SSH : [ArkOS wiki info about connecting with SSH](https://github.com/christianhaitian/arkos/wiki/Frequently-Asked-Questions---CHI#q-how-do-i-ssh-into-arkos)   |
+|-----------------------------------------|
 
 ### Set up root access
 Execute the command
@@ -83,6 +94,8 @@ Now connect again to your R36S with putty but do not use **ark/ark** as user pas
 
 Congrats you're connected as admin, now let's do the such awaited work
 
+| ❗  If it doesn't work, maybe something changed so I'd suggest you check the original ArkOS wiki about SSH : [ArkOS wiki info about connecting with SSH](https://github.com/christianhaitian/arkos/wiki/Frequently-Asked-Questions---CHI#q-how-do-i-ssh-into-arkos)   |
+|-----------------------------------------|
 
 ### Set up the random video script
 We'll create a new file to put the script content
